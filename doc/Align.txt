@@ -28,24 +28,24 @@ Copyright: (c) 2004-2008 by Charles E. Campbell, Jr.	*Align-copyright*
 	     Current Options........: |alignctrl-settings| |alignctrl-|
 	   Alignment................: |align-align|
 	4. Alignment Maps...........: |align-maps|
-	     \a,....................: |alignmap-a,|
-	     \a?....................: |alignmap-a?|
-	     \a<....................: |alignmap-a<|
-	     \abox..................: |alignmap-abox|
-	     \acom..................: |alignmap-acom|
-	     \anum..................: |alignmap-anum|
-	     \ascom.................: |alignmap-ascom|
-	     \adec..................: |alignmap-adec|
-	     \adef..................: |alignmap-adef|
-	     \afnc..................: |alignmap-afnc|
-	     \adcom.................: |alignmap-adcom|
-	     \aocom.................: |alignmap-aocom|
-	     \tsp...................: |alignmap-tsp|
-	     \tsq...................: |alignmap-tsq|
-	     \tt....................: |alignmap-tt|
-	     \t=....................: |alignmap-t=|
-	     \T=....................: |alignmap-T=|
-	     \Htd...................: |alignmap-Htd|
+	     \jc,....................: |alignmap-jc,|
+	     \jc?....................: |alignmap-jc?|
+	     \jc<....................: |alignmap-jc<|
+	     \jcbox..................: |alignmap-jcbox|
+	     \jccom..................: |alignmap-jccom|
+	     \jcnum..................: |alignmap-jcnum|
+	     \jcscom.................: |alignmap-jcscom|
+	     \jcdec..................: |alignmap-jcdec|
+	     \jcdef..................: |alignmap-jcdef|
+	     \jcfnc..................: |alignmap-jcfnc|
+	     \jcdcom.................: |alignmap-jcdcom|
+	     \jcocom.................: |alignmap-jcocom|
+	     \jsp...................: |alignmap-jsp|
+	     \jsq...................: |alignmap-jsq|
+	     \jt....................: |alignmap-jt|
+	     \j=....................: |alignmap-j=|
+	     \J=....................: |alignmap-J=|
+	     \jhtd...................: |alignmap-jhtd|
 	5. Alignment Tool History...: |align-history|
 
 ==============================================================================
@@ -329,7 +329,7 @@ ALIGNMENT CONTROL				*alignctrl* *align-control* {{{2
 	their outsides (ie.  ":  :" is fine as a separator, but " :: " is
 	not).  Usually such separators are not needed, although a map has been
 	provided which works around this limitation and aligns on whitespace
-	(see |alignmap-tsp|).
+	(see |alignmap-jsp|).
 
 	However, if you really need to have separators with leading or
 	trailing whitespace, consider handling them by performing a substitute
@@ -773,63 +773,63 @@ ALIGNMENT						*align-align* {{{2
 	|<Plug>|and |usr_41.txt|).  Hence, if one wishes to override the
 	mapping entirely, one may do that, too.  As an example: >
 		map <Leader>ACOM	<Plug>AM_acom
-<	would have \ACOM do what \acom previously did (assuming that the
+<	would have \ACOM do what \jccom previously did (assuming that the
 	mapleader has been left at its default value of a backslash).
 
-	  \a,   : useful for breaking up comma-separated
-	          declarations prior to \adec			|alignmap-a,|
-	  \a(   : aligns ( and , (useful for prototypes)        *alignmap-a(*
-	  \a?   : aligns (...)? ...:... expressions on ? and :	|alignmap-a?|
-	  \a<   : aligns << and >> for c++			|alignmap-a<|
-	  \a=   : aligns := assignments   			|alignmap-a=|
-	  \abox : draw a C-style comment box around text lines	|alignmap-abox|
-	  \acom : useful for aligning comments			|alignmap-acom|
-	  \adcom: useful for aligning comments in declarations  |alignmap-adcom|
-	  \anum : useful for aligning numbers 			|alignmap-anum|
-	          NOTE: For the visual-mode use of \anum, <vis.vim> is needed!
+	  \jc,   : useful for breaking up comma-separated
+	          declarations prior to \jcdec			|alignmap-jc,|
+	  \jc(   : aligns ( and , (useful for prototypes)        *alignmap-jc(*
+	  \jc?   : aligns (...)? ...:... expressions on ? and :	|alignmap-jc?|
+	  \jc<   : aligns << and >> for c++			|alignmap-jc<|
+	  \jc=   : aligns := assignments   			|alignmap-jc=|
+	  \jcbox : draw a C-style comment box around text lines	|alignmap-jcbox|
+	  \jccom : useful for aligning comments			|alignmap-jccom|
+	  \jcdcom: useful for aligning comments in declarations  |alignmap-jcdcom|
+	  \jcnum : useful for aligning numbers 			|alignmap-jcnum|
+	          NOTE: For the visual-mode use of \jcnum, <vis.vim> is needed!
 		    See http://mysite.verizon.net/astronaut/vim/index.html#VIS
-	  \aenum: align a European-style number			|alignmap-anum|
-	  \aunum: align a USA-style number			|alignmap-anum|
-	  \adec : useful for aligning declarations		|alignmap-adec|
-	  \adef : useful for aligning definitions		|alignmap-adef|
-	  \afnc : useful for aligning ansi-c style functions'
-	          argument lists				|alignmap-afnc|
-	  \adcom: a variant of \acom, restricted to comment     |alignmap-adcom|
+	  \jcenum: align a European-style number			|alignmap-jcnum|
+	  \jcunum: align a USA-style number			|alignmap-jcnum|
+	  \jcdec : useful for aligning declarations		|alignmap-jcdec|
+	  \jcdef : useful for aligning definitions		|alignmap-jcdef|
+	  \jcfnc : useful for aligning ansi-c style functions'
+	          argument lists				|alignmap-jcfnc|
+	  \jcdcom: a variant of \jccom, restricted to comment     |alignmap-jcdcom|
 	          containing lines only, but also only for
 		  those which don't begin with a comment.
 		  Good for certain declaration styles.
-	  \aocom: a variant of \acom, restricted to comment     |alignmap-aocom|
+	  \jcocom: a variant of \jccom, restricted to comment     |alignmap-jcocom|
 	          containing lines only
-	  \tab  : align a table based on tabs			*alignmap-tab*
+	  \jtab  : align a table based on tabs			*alignmap-jab*
 	          (converts to spaces)
-	  \tml  : useful for aligning the trailing backslashes	|alignmap-tml|
+	  \jbs  : useful for aligning the trailing backslashes	|alignmap-jbs
 	          used to continue lines (shell programming, etc)
-	  \tsp  : use Align to make a table separated by blanks	|alignmap-tsp|
+	  \jsp  : use Align to make a table separated by blanks	|alignmap-jsp|
 	          (left justified)
-	  \ts,  : like \t, but swaps whitespace on the right of *alignmap-ts,*
+	  \js,  : like \j, but swaps whitespace on the right of *alignmap-js,*
 	          the commas to their left
-	  \ts:  : like \t: but swaps whitespace on the right of *alignmap-ts:*
+	  \js:  : like \j: but swaps whitespace on the right of *alignmap-js:*
 	          the colons to their left
-	  \ts<  : like \t< but swaps whitespace on the right of *alignmap-ts<*
+	  \js<  : like \j< but swaps whitespace on the right of *alignmap-js<*
 	          the less-than signs to their left
-	  \ts=  : like \t= but swaps whitespace on the right of *alignmap-ts=*
+	  \js=  : like \j= but swaps whitespace on the right of *alignmap-js=*
 	          the equals signs to their left
-	  \Tsp  : use Align to make a table separated by blanks	|alignmap-Tsp|
+	  \Jsp  : use Align to make a table separated by blanks	|alignmap-Jsp|
 	          (right justified)
-	  \tsq  : use Align to make a table separated by blanks	|alignmap-tsq|
+	  \jsq  : use Align to make a table separated by blanks	|alignmap-jsq|
 	          (left justified) -- "strings" are not split up
-	  \tt   : useful for aligning LaTeX tabular tables	|alignmap-tt|
-	  \Htd  : tabularizes html tables:			|alignmap-Htd|
+	  \jt   : useful for aligning LaTeX tabular tables	|alignmap-jt|
+	  \jhtd  : tabularizes html tables:			|alignmap-jhtd|
 	          <TR><TD> ...field... </TD><TD> ...field... </TD></TR>
 
-		  *alignmap-t|* *alignmap-t#* *alignmap-t,* *alignmap-t:*
-		  *alignmap-t;* *alignmap-t<* *alignmap-t?* *alignmap-t~*
-		  *alignmap-m=*
-	  \tx   : make a left-justified  alignment on
-	          character "x" where "x" is: ,:<=@|#		|alignmap-t=|
-	  \Tx   : make a right-justified alignment on
-	          character "x" where "x" is: ,:<=@#		|alignmap-T=|
-	  \m=   : like \t= but aligns with %... style comments
+		  *alignmap-j|* *alignmap-j#* *alignmap-j,* *alignmap-j:*
+		  *alignmap-j;* *alignmap-j<* *alignmap-j?* *alignmap-j~*
+		  *alignmap-jm=*
+	  \jx   : make a left-justified  alignment on
+	          character "x" where "x" is: ,:<=@|#		|alignmap-j=|
+	  \Jx   : make a right-justified alignment on
+	          character "x" where "x" is: ,:<=@#		|alignmap-J=|
+	  \jm=   : like \j= but aligns with %... style comments
 
 	The leading backslash is actually <leader> (see |mapleader| for how to
 	customize the leader to be whatever you like).  These maps use the
@@ -864,7 +864,7 @@ ALIGNMENT						*align-align* {{{2
 	COMPLEX ALIGNMENT MAP METHOD~
 
 	For those complex alignment maps which do alignment on constructs
-	(e.g. \acom, \adec, etc), a series of substitutes is used to insert
+	(e.g. \jccom, \jcdec, etc), a series of substitutes is used to insert
 	"@" symbols in appropriate locations.  Align#Align() is then used to
 	do alignment directly on "@"s; then it is followed by further
 	substitutes to do clean-up.  However, the maps \WS and \WE, used by
@@ -877,7 +877,7 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	---------------------------
-	Alignment Map Examples: \a,			*alignmap-a,* {{{3
+	Alignment Map Examples: \jc,			*alignmap-jc,* {{{3
 	---------------------------
 
 	Original: illustrates comma-separated declaration splitting: >
@@ -893,7 +893,7 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	---------------------------
-	Alignment Map Examples: \a?			*alignmap-a?* {{{3
+	Alignment Map Examples: \jc?			*alignmap-jc?* {{{3
 	---------------------------
 
 	Original: illustrates ()?: aligning >
@@ -902,7 +902,7 @@ ALIGNMENT						*align-align* {{{2
 		  (x == DEFG)? "defg" :
 		  (x == HIJKL)? "hijkl" : "???");
 <
-	Becomes:  select "(x == ..." lines, then \a? >
+	Becomes:  select "(x == ..." lines, then \jc? >
 		printf("<%s>\n",
 		  (x == ABC)?   "abc"   :
 		  (x == DEFG)?  "defg"  :
@@ -910,7 +910,7 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	---------------------------
-	Alignment Map Examples: \a<			*alignmap-a<* {{{3
+	Alignment Map Examples: \jc<			*alignmap-jc<* {{{3
 	---------------------------
 
 	Original: illustrating aligning of << and >> >
@@ -919,7 +919,7 @@ ALIGNMENT						*align-align* {{{2
 		cout << "this is x=" << x;
 		cout << "but y=" << y << "is not";
 <
-	Becomes:  select "(x == ..." lines, then \a< >
+	Becomes:  select "(x == ..." lines, then \jc< >
 		cin  << x;
 		cin  << y;
 		cout << "this is x=" << x;
@@ -927,7 +927,7 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	---------------------------
-	Alignment Map Examples: \a=			*alignmap-a=* {{{3
+	Alignment Map Examples: \jc=			*alignmap-jc=* {{{3
 	---------------------------
 
 	Original: illustrates how to align := assignments >
@@ -935,14 +935,14 @@ ALIGNMENT						*align-align* {{{2
 		a:=b:=c:=1;
 		aaa:=bbb:=ccc:=1;
 <	
-	Bcomes: select the three assignment lines, then \a:= >
+	Bcomes: select the three assignment lines, then \jc:= >
 		aa  := bb  := cc  := 1;
 		a   := b   := c   := 1;
 		aaa := bbb := ccc := 1;
 <
 
 	---------------------------
-	Alignment Map Examples: \abox			*alignmap-abox* {{{3
+	Alignment Map Examples: \jcbox			*alignmap-jcbox* {{{3
 	---------------------------
 
 	Original: illustrates how to comment-box some text >
@@ -951,7 +951,7 @@ ALIGNMENT						*align-align* {{{2
 		soon be surrounded by a
 		comment box.
 <
-	Becomes:  Select "This..box." with ctrl-v, press \abox >
+	Becomes:  Select "This..box." with ctrl-v, press \jcbox >
 		/***************************
 		 * This is some plain text *
 		 * which will              *
@@ -961,7 +961,7 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	---------------------------
-	Alignment Map Examples: \acom			*alignmap-acom* {{{3
+	Alignment Map Examples: \jccom			*alignmap-jccom* {{{3
 	---------------------------
 
 	Original: illustrates aligning C-style comments (works for //, too) >
@@ -969,16 +969,16 @@ ALIGNMENT						*align-align* {{{2
 			then= dothis; /* is a */
 			} /* set of three comments */
 <
-	Becomes: Select the three lines, press \acom >
+	Becomes: Select the three lines, press \jccom >
 	        if(itworks) {         /* this                  */
 	                then= dothis; /* is a                  */
 	                }             /* set of three comments */
 <
-	Also see |alignmap-aocom|
+	Also see |alignmap-jcocom|
 
 
 	---------------------------
-	Alignment Map Examples: \anum			*alignmap-anum* {{{3
+	Alignment Map Examples: \jcnum			*alignmap-jcnum* {{{3
 	---------------------------
 
 	Original: illustrates how to get numbers lined up >
@@ -987,7 +987,7 @@ ALIGNMENT						*align-align* {{{2
 		 12.34 56.78 90.1e-4
 		 123.4 567.8 901.e-4
 <
-	Becomes: Go to first line, ma.  Go to last line, press \anum >
+	Becomes: Go to first line, ma.  Go to last line, press \jcnum >
 		  -1.234    .5678   -.901e-4
 		   1.234   5.678    9.01e-4
 		  12.34   56.78    90.1e-4
@@ -1000,7 +1000,7 @@ ALIGNMENT						*align-align* {{{2
 		 | 123.4 567.8 901.e-4   |
 <
 	Becomes: Select the numbers with ctrl-v (visual-block mode), >
-	         press \anum
+	         press \jcnum
 	         |  -1.234    .5678   -.901e-4 |
 	         |   1.234   5.678    9.01e-4  |
 	         |  12.34   56.78    90.1e-4   |
@@ -1012,25 +1012,25 @@ ALIGNMENT						*align-align* {{{2
 		 12,34 56,78 90,1e-4
 		 123,4 567,8 901,e-4
 <
-	Becomes: Go to first line, ma.  Go to last line, press \anum >
+	Becomes: Go to first line, ma.  Go to last line, press \jcnum >
 		  -1,234    ,5678   -,901e-4
 		   1,234   5,678    9,01e-4
 		  12,34   56,78    90,1e-4
 		 123,4   567,8    901,e-4
 <
 	In addition:
-	  \aenum is provided to support European-style numbers
-	  \aunum is provided to support USA-style numbers
+	  \jcenum is provided to support European-style numbers
+	  \jcunum is provided to support USA-style numbers
 
-	One may get \aenum behavior for \anum >
+	One may get \jcenum behavior for \jcnum >
 	  let g:alignmaps_euronumber= 1
-<	or \aunum behavior for \anum if one puts >
+<	or \jcunum behavior for \jcnum if one puts >
 	  let g:alignmaps_usanumber= 1
 <	in one's <.vimrc>.
 
 
 	---------------------------
-	Alignment Map Examples: \ascom			*alignmap-ascom* {{{3
+	Alignment Map Examples: \jcscom			*alignmap-jcscom* {{{3
 	---------------------------
 
 	Original: >
@@ -1038,14 +1038,14 @@ ALIGNMENT						*align-align* {{{2
 		int x; /* this is a comment */
 		int yzw; /* this is another comment*/
 <
-	Becomes: Select the three lines, press \ascom >
+	Becomes: Select the three lines, press \jcscom >
 	        /* A Title */
 	        int x;   /* this is a comment       */
 	        int yzw; /* this is another comment */
 <
 
 	---------------------------
-	Alignment Map Examples: \adec			*alignmap-adec* {{{3
+	Alignment Map Examples: \jcdec			*alignmap-jcdec* {{{3
 	---------------------------
 
 	Original: illustrates how to clean up C/C++ declarations >
@@ -1068,7 +1068,7 @@ ALIGNMENT						*align-align* {{{2
 		static   struct  abc_str abc;    /* abc */
 		static   struct  abc_str *pabc;    /* pabc */
 <
-	Becomes: Select the declarations text, then \adec >
+	Becomes: Select the declarations text, then \jcdec >
 		int                    a;
 		float                  b;
 		double                *c    = NULL;
@@ -1090,7 +1090,7 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	---------------------------
-	Alignment Map Examples: \adef			*alignmap-adef* {{{3
+	Alignment Map Examples: \jcdef			*alignmap-jcdef* {{{3
 	---------------------------
 
 	Original: illustrates how to line up #def'initions >
@@ -1099,7 +1099,7 @@ ALIGNMENT						*align-align* {{{2
 		#define THREE 333
 		#define FOUR 4444
 <
-	Becomes: Select four definition lines, apply \adef >
+	Becomes: Select four definition lines, apply \jcdef >
 	#	 define ONE   1
 	#	 define TWO   22
 	#	 define THREE 333
@@ -1107,7 +1107,7 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	---------------------------
-	Alignment Map Examples: \afnc			*alignmap-afnc* {{{3
+	Alignment Map Examples: \jcfnc			*alignmap-jcfnc* {{{3
 	---------------------------
 
 	This map is an exception to the usual selection rules.
@@ -1127,7 +1127,7 @@ ALIGNMENT						*align-align* {{{2
 	{
 	}
 <
-	Becomes: put cursor anywhere before the '{', press \afnc >
+	Becomes: put cursor anywhere before the '{', press \jcfnc >
 	int f(
 	  struct abc_str ***a,	/* one   */
 	  long             *b,	/* two   */
@@ -1137,7 +1137,7 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	---------------------------
-	Alignment Map Examples: \adcom			*alignmap-adcom* {{{3
+	Alignment Map Examples: \jcdcom			*alignmap-jcdcom* {{{3
 	---------------------------
 
 	Original: illustrates aligning comments that don't begin
@@ -1149,7 +1149,7 @@ ALIGNMENT						*align-align* {{{2
 			};
 <
 	Becomes: Select the inside lines of the structure,
-		then press \adcom.  The comment-only
+		then press \jcdcom.  The comment-only
 		line is ignored but the other two comments
 		get aligned. >
 		struct {
@@ -1160,68 +1160,68 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	---------------------------
-	Alignment Map Examples: \aocom			*alignmap-aocom* {{{3
+	Alignment Map Examples: \jcocom			*alignmap-jcocom* {{{3
 	---------------------------
 
 	Original: illustrates how to align C-style comments (works for //, too)
 	          but restricted only to aligning with those lines containing
-		  comments.  See the difference from \acom (|alignmap-acom|). >
+		  comments.  See the difference from \jccom (|alignmap-jccom|). >
 		if(itworks) { /* this comment */
 			then= dothis;
 			} /* only appears on two lines */
 <
-	Becomes: Select the three lines, press \aocom >
+	Becomes: Select the three lines, press \jcocom >
                 if(itworks) { /* this comment              */
                         then= dothis;
                         }     /* only appears on two lines */
 <
-	Also see |alignmap-acom|
+	Also see |alignmap-jccom|
 
 
-	---------------------------			*alignmap-Tsp*
-	Alignment Map Examples: \tsp			*alignmap-tsp* {{{3
+	---------------------------			*alignmap-Jsp*
+	Alignment Map Examples: \jsp			*alignmap-jsp* {{{3
 	---------------------------
 
 	Normally Align can't use white spaces for field separators as such
-	characters are ignored surrounding field separators.  The \tsp and
-	\Tsp maps get around this limitation.
+	characters are ignored surrounding field separators.  The \jsp and
+	\Jsp maps get around this limitation.
 
 	Original: >
 	 one two three four five
 	 six seven eight nine ten
 	 eleven twelve thirteen fourteen fifteen
 <
-	Becomes: Select the lines, \tsp >
+	Becomes: Select the lines, \jsp >
 	 one    two    three    four     five
 	 six    seven  eight    nine     ten
 	 eleven twelve thirteen fourteen fifteen
 <
-	Becomes: Select the lines, \Tsp >
+	Becomes: Select the lines, \Jsp >
 	    one    two    three     four    five
 	    six  seven    eight     nine     ten
 	 eleven twelve thirteen fourteen fifteen
 <
 
 	---------------------------
-	Alignment Map Examples: \tsq			*alignmap-tsq* {{{3
+	Alignment Map Examples: \jsq			*alignmap-jsq* {{{3
 	---------------------------
 
-	The \tsp map is useful for aligning tables based on white space,
+	The \jsp map is useful for aligning tables based on white space,
 	but sometimes one wants double-quoted strings to act as a single
-	object in spite of embedded spaces.  The \tsq map was invented
+	object in spite of embedded spaces.  The \jsq map was invented
 	to support this. (thanks to Leif Wickland)
 
 	Original: >
 	 "one two" three
 	 four "five six"
 <
-	Becomes: Select the lines, \tsq >
+	Becomes: Select the lines, \jsq >
 	 "one two" three
 	 four      "five six"
 <
 
 	---------------------------
-	Alignment Map Examples: \tt			*alignmap-tt* {{{3
+	Alignment Map Examples: \jt			*alignmap-jt* {{{3
 	---------------------------
 
 	Original: illustrates aligning a LaTex Table >
@@ -1234,7 +1234,7 @@ ALIGNMENT						*align-align* {{{2
 	 \end{tabular}
 <
 	Becomes: Select the three lines inside the table >
-	(ie. one..,four..,seven..) and press \tt
+	(ie. one..,four..,seven..) and press \jt
 	 \begin{tabular}{||c|l|r||}
 	 \hline\hline
 	   one   & two   & three \\ \hline
@@ -1245,7 +1245,7 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	----------------------------
-	Alignment Map Examples: \tml			*alignmap-tml* {{{3
+	Alignment Map Examples: \jbs			*alignmap-jbs {{{3
 	----------------------------
 
         Original:  illustrates aligning multi-line continuation marks >
@@ -1266,7 +1266,7 @@ ALIGNMENT						*align-align* {{{2
 <
 
 	---------------------------
-	Alignment Map Examples: \t=			*alignmap-t=* {{{3
+	Alignment Map Examples: \j=			*alignmap-j=* {{{3
 	---------------------------
 
 	Original: illustrates left-justified aligning of = >
@@ -1274,14 +1274,14 @@ ALIGNMENT						*align-align* {{{2
 		a=b=c=1;/*two*/
 		aaa=bbb=ccc=1;/*three*/
 <
-	Becomes: Select the three equations, press \t= >
+	Becomes: Select the three equations, press \j= >
 		aa  = bb  = cc  = 1; /* one   */
 		a   = b   = c   = 1; /* two   */
 		aaa = bbb = ccc = 1; /* three */
 <
 
 	---------------------------
-	Alignment Map Examples: \T=			*alignmap-T=* {{{3
+	Alignment Map Examples: \J=			*alignmap-J=* {{{3
 	---------------------------
 
 	Original: illustrates right-justified aligning of = >
@@ -1289,21 +1289,21 @@ ALIGNMENT						*align-align* {{{2
 		a=b=c=1; /* two */
 		aaa=bbb=ccc=1; /* three */
 <
-	Becomes: Select the three equations, press \T= >
+	Becomes: Select the three equations, press \J= >
                  aa =  bb =  cc = 1; /* one   */
                   a =   b =   c = 1; /* two   */
                 aaa = bbb = ccc = 1; /* three */
 <
 
 	---------------------------
-	Alignment Map Examples: \Htd			*alignmap-Htd* {{{3
+	Alignment Map Examples: \jhtd			*alignmap-jhtd* {{{3
 	---------------------------
 
 	Original: for aligning tables with html >
 	  <TR><TD>...field one...</TD><TD>...field two...</TD></TR>
 	  <TR><TD>...field three...</TD><TD>...field four...</TD></TR>
 <
-	Becomes: Select <TR>... lines, press \Htd >
+	Becomes: Select <TR>... lines, press \jhtd >
 	  <TR><TD> ...field one...   </TD><TD> ...field two...  </TD></TR>
 	  <TR><TD> ...field three... </TD><TD> ...field four... </TD></TR>
 <
@@ -1382,6 +1382,7 @@ ALIGN HISTORY								{{{2
 	 9 : Jun 25, 2002 : implemented cyclic padding
 
 ALIGNMENT MAP HISTORY					*alignmap-history* {{{2
+       v42    Feb 27, 2011   * Group all mappings under <Leader>j
        v41    Nov 02, 2008   * g:loaded_AlignMapsPlugin testing to prevent
 			       re-loading installed
 			     * AlignMaps now use 0x0f (ctrl-p) for special

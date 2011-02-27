@@ -65,18 +65,18 @@ MANY ALIGNMENT MAPS
 
 AlignMaps.vim provides a number of maps which make using this package easy.  They typically either apply to the range 'a,. (from mark a to current line) or use the visual-selection (V, v, or ctrl-v selected):
 
-	\t=  : align assignments (don't count logic, like == or !=)
-	\t,  : align on commas
-	\t|  : align on vertical bars (|)
-	\tsp : align on whitespace
-	\tt  : align LaTeX tabular tables
+	\j=  : align assignments (don't count logic, like == or !=)
+	\j,  : align on commas
+	\j|  : align on vertical bars (|)
+	\jsp : align on whitespace
+	\jt  : align LaTeX tabular tables
 
 AlignMaps also provides some internally complex maps for aligning C declarations, Ansi C function arguments, html tables, LaTeX tabulars, and trailing comments:
 
-	\acom : align comments
-	\adec : align C declarations (one variable per line)
-	\afnc : align ansi-style C function input arguments
-	\Htd  : align html tables
+	\jccom : align comments
+	\jcdec : align C declarations (one variable per line)
+	\jcfnc : align ansi-style C function input arguments
+	\jhtd  : align html tables
 	
 To see some examples of this, check out
 
