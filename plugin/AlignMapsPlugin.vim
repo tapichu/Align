@@ -40,7 +40,7 @@ if &cp || exists("g:loaded_AlignMapsPlugin")
  finish
 endif
 let s:keepcpo                = &cpo
-let g:loaded_AlignMapsPlugin = "v41"
+let g:loaded_AlignMapsPlugin = "v42"
 set cpo&vim
 
 " =====================================================================
@@ -65,26 +65,25 @@ nmap <silent> <script> <Plug>AlignMapsWrapperEnd	:call AlignMaps#WrapperEnd()<CR
 
 " ---------------------------------------------------------------------
 " Complex C-code alignment maps: {{{2
-if !hasmapto('<Plug>AM_a?')   |map <unique> <Leader>a?		<Plug>AM_a?|endif
-if !hasmapto('<Plug>AM_a,')   |map <unique> <Leader>a,		<Plug>AM_a,|endif
-if !hasmapto('<Plug>AM_a<')   |map <unique> <Leader>a<		<Plug>AM_a<|endif
-if !hasmapto('<Plug>AM_a=')   |map <unique> <Leader>a=		<Plug>AM_a=|endif
-if !hasmapto('<Plug>AM_a(')   |map <unique> <Leader>a(		<Plug>AM_a(|endif
-if !hasmapto('<Plug>AM_abox') |map <unique> <Leader>abox	<Plug>AM_abox|endif
-if !hasmapto('<Plug>AM_acom') |map <unique> <Leader>acom	<Plug>AM_acom|endif
-if !hasmapto('<Plug>AM_adcom')|map <unique> <Leader>adcom	<Plug>AM_adcom|endif
-if !hasmapto('<Plug>AM_aocom')|map <unique> <Leader>aocom	<Plug>AM_aocom|endif
-if !hasmapto('<Plug>AM_ascom')|map <unique> <Leader>ascom	<Plug>AM_ascom|endif
-if !hasmapto('<Plug>AM_adec') |map <unique> <Leader>adec	<Plug>AM_adec|endif
-if !hasmapto('<Plug>AM_adef') |map <unique> <Leader>adef	<Plug>AM_adef|endif
-if !hasmapto('<Plug>AM_afnc') |map <unique> <Leader>afnc	<Plug>AM_afnc|endif
-if !hasmapto('<Plug>AM_afnc') |map <unique> <Leader>afnc	<Plug>AM_afnc|endif
-if !hasmapto('<Plug>AM_aunum')|map <unique> <Leader>aunum	<Plug>AM_aenum|endif
-if !hasmapto('<Plug>AM_aenum')|map <unique> <Leader>aenum	<Plug>AM_aunum|endif
+if !hasmapto('<Plug>AM_a?')   |map <unique> <Leader>jc?		<Plug>AM_a?|endif
+if !hasmapto('<Plug>AM_a,')   |map <unique> <Leader>jc,		<Plug>AM_a,|endif
+if !hasmapto('<Plug>AM_a<')   |map <unique> <Leader>jc<		<Plug>AM_a<|endif
+if !hasmapto('<Plug>AM_a=')   |map <unique> <Leader>jc=		<Plug>AM_a=|endif
+if !hasmapto('<Plug>AM_a(')   |map <unique> <Leader>jc(		<Plug>AM_a(|endif
+if !hasmapto('<Plug>AM_abox') |map <unique> <Leader>jcbox	<Plug>AM_abox|endif
+if !hasmapto('<Plug>AM_acom') |map <unique> <Leader>jccom	<Plug>AM_acom|endif
+if !hasmapto('<Plug>AM_adcom')|map <unique> <Leader>jcdcom	<Plug>AM_adcom|endif
+if !hasmapto('<Plug>AM_aocom')|map <unique> <Leader>jcocom	<Plug>AM_aocom|endif
+if !hasmapto('<Plug>AM_ascom')|map <unique> <Leader>jcscom	<Plug>AM_ascom|endif
+if !hasmapto('<Plug>AM_adec') |map <unique> <Leader>jcdec	<Plug>AM_adec|endif
+if !hasmapto('<Plug>AM_adef') |map <unique> <Leader>jcdef	<Plug>AM_adef|endif
+if !hasmapto('<Plug>AM_afnc') |map <unique> <Leader>jcfnc	<Plug>AM_afnc|endif
+if !hasmapto('<Plug>AM_aunum')|map <unique> <Leader>jcunum	<Plug>AM_aenum|endif
+if !hasmapto('<Plug>AM_aenum')|map <unique> <Leader>jcenum	<Plug>AM_aunum|endif
 if exists("g:alignmaps_euronumber") && !exists("g:alignmaps_usanumber")
- if !hasmapto('<Plug>AM_anum')|map <unique> <Leader>anum	<Plug>AM_aenum|endif
+ if !hasmapto('<Plug>AM_anum')|map <unique> <Leader>jcnum	<Plug>AM_aenum|endif
 else
- if !hasmapto('<Plug>AM_anum')|map <unique> <Leader>anum	<Plug>AM_aunum|endif
+ if !hasmapto('<Plug>AM_anum')|map <unique> <Leader>jcnum	<Plug>AM_aunum|endif
 endif
 
 map <silent> <script> <Plug>AM_a?		<SID>WS:AlignCtrl mIp1P1lC ? : : : : <CR>:'a,.Align<CR>:'a,'z-1s/\(\s\+\)? /?\1/e<CR><SID>WE
@@ -105,24 +104,24 @@ map <silent> <script> <Plug>AM_aenum	<SID>WS:'a,'zs/\%([0-9.]\)\s\+\([-+]\=\d\)/
 
 " ---------------------------------------------------------------------
 " html table alignment	{{{2
-if !hasmapto('<Plug>AM_Htd')|map <unique> <Leader>Htd	<Plug>AM_Htd|endif
+if !hasmapto('<Plug>AM_Htd')|map <unique> <Leader>jhtd	<Plug>AM_Htd|endif
 map <silent> <script> <Plug>AM_Htd <SID>WS:'y,'zs%<[tT][rR]><[tT][dD][^>]\{-}>\<Bar></[tT][dD]><[tT][dD][^>]\{-}>\<Bar></[tT][dD]></[tT][rR]>%@&@%g<CR>'yjma'zk:AlignCtrl m=Ilp1P0 @<CR>:'a,.Align<CR>:'y,'zs/ @/@/<CR>:'y,'zs/@ <[tT][rR]>/<[tT][rR]>/ge<CR>:'y,'zs/@//ge<CR><SID>WE
 
 " ---------------------------------------------------------------------
 " character-based right-justified alignment maps {{{2
-if !hasmapto('<Plug>AM_T|')|map <unique> <Leader>T|		<Plug>AM_T||endif
-if !hasmapto('<Plug>AM_T#')	 |map <unique> <Leader>T#		<Plug>AM_T#|endif
-if !hasmapto('<Plug>AM_T,')	 |map <unique> <Leader>T,		<Plug>AM_T,o|endif
-if !hasmapto('<Plug>AM_Ts,') |map <unique> <Leader>Ts,		<Plug>AM_Ts,|endif
-if !hasmapto('<Plug>AM_T:')	 |map <unique> <Leader>T:		<Plug>AM_T:|endif
-if !hasmapto('<Plug>AM_T;')	 |map <unique> <Leader>T;		<Plug>AM_T;|endif
-if !hasmapto('<Plug>AM_T<')	 |map <unique> <Leader>T<		<Plug>AM_T<|endif
-if !hasmapto('<Plug>AM_T=')	 |map <unique> <Leader>T=		<Plug>AM_T=|endif
-if !hasmapto('<Plug>AM_T?')	 |map <unique> <Leader>T?		<Plug>AM_T?|endif
-if !hasmapto('<Plug>AM_T@')	 |map <unique> <Leader>T@		<Plug>AM_T@|endif
-if !hasmapto('<Plug>AM_Tab') |map <unique> <Leader>Tab		<Plug>AM_Tab|endif
-if !hasmapto('<Plug>AM_Tsp') |map <unique> <Leader>Tsp		<Plug>AM_Tsp|endif
-if !hasmapto('<Plug>AM_T~')	 |map <unique> <Leader>T~		<Plug>AM_T~|endif
+if !hasmapto('<Plug>AM_T|')|map <unique> <Leader>J|		<Plug>AM_T||endif
+if !hasmapto('<Plug>AM_T#')	 |map <unique> <Leader>J#		<Plug>AM_T#|endif
+if !hasmapto('<Plug>AM_T,')	 |map <unique> <Leader>J,		<Plug>AM_T,o|endif
+if !hasmapto('<Plug>AM_Ts,') |map <unique> <Leader>Js,		<Plug>AM_Ts,|endif
+if !hasmapto('<Plug>AM_T:')	 |map <unique> <Leader>J:		<Plug>AM_T:|endif
+if !hasmapto('<Plug>AM_T;')	 |map <unique> <Leader>J;		<Plug>AM_T;|endif
+if !hasmapto('<Plug>AM_T<')	 |map <unique> <Leader>J<		<Plug>AM_T<|endif
+if !hasmapto('<Plug>AM_T=')	 |map <unique> <Leader>J=		<Plug>AM_T=|endif
+if !hasmapto('<Plug>AM_T?')	 |map <unique> <Leader>J?		<Plug>AM_T?|endif
+if !hasmapto('<Plug>AM_T@')	 |map <unique> <Leader>J@		<Plug>AM_T@|endif
+if !hasmapto('<Plug>AM_Tab') |map <unique> <Leader>Jtab		<Plug>AM_Tab|endif
+if !hasmapto('<Plug>AM_Tsp') |map <unique> <Leader>Jsp		<Plug>AM_Tsp|endif
+if !hasmapto('<Plug>AM_T~')	 |map <unique> <Leader>J~		<Plug>AM_T~|endif
 
 map <silent> <script> <Plug>AM_T| <SID>WS:AlignCtrl mIp0P0=r <Bar><CR>:'a,.Align<CR><SID>WE
 map <silent> <script> <Plug>AM_T#   <SID>WS:AlignCtrl mIp0P0=r #<CR>:'a,.Align<CR><SID>WE
@@ -140,28 +139,28 @@ map <silent> <script> <Plug>AM_T~   <SID>WS:AlignCtrl mIp0P0=r ~<CR>:'a,.Align<C
 
 " ---------------------------------------------------------------------
 " character-based left-justified alignment maps {{{2
-if !hasmapto('<Plug>AM_t|')	|map <unique> <Leader>t|	<Plug>AM_t||endif
-if !hasmapto('<Plug>AM_t#')		|map <unique> <Leader>t#	<Plug>AM_t#|endif
-if !hasmapto('<Plug>AM_t,')		|map <unique> <Leader>t,	<Plug>AM_t,|endif
-if !hasmapto('<Plug>AM_t:')		|map <unique> <Leader>t:	<Plug>AM_t:|endif
-if !hasmapto('<Plug>AM_t;')		|map <unique> <Leader>t;	<Plug>AM_t;|endif
-if !hasmapto('<Plug>AM_t<')		|map <unique> <Leader>t<	<Plug>AM_t<|endif
-if !hasmapto('<Plug>AM_t=')		|map <unique> <Leader>t=	<Plug>AM_t=|endif
-if !hasmapto('<Plug>AM_ts,')	|map <unique> <Leader>ts,	<Plug>AM_ts,|endif
-if !hasmapto('<Plug>AM_ts:')	|map <unique> <Leader>ts:	<Plug>AM_ts:|endif
-if !hasmapto('<Plug>AM_ts;')	|map <unique> <Leader>ts;	<Plug>AM_ts;|endif
-if !hasmapto('<Plug>AM_ts<')	|map <unique> <Leader>ts<	<Plug>AM_ts<|endif
-if !hasmapto('<Plug>AM_ts=')	|map <unique> <Leader>ts=	<Plug>AM_ts=|endif
-if !hasmapto('<Plug>AM_w=')		|map <unique> <Leader>w=	<Plug>AM_w=|endif
-if !hasmapto('<Plug>AM_t?')		|map <unique> <Leader>t?	<Plug>AM_t?|endif
-if !hasmapto('<Plug>AM_t~')		|map <unique> <Leader>t~	<Plug>AM_t~|endif
-if !hasmapto('<Plug>AM_t@')		|map <unique> <Leader>t@	<Plug>AM_t@|endif
-if !hasmapto('<Plug>AM_m=')		|map <unique> <Leader>m=	<Plug>AM_m=|endif
-if !hasmapto('<Plug>AM_tab')	|map <unique> <Leader>tab	<Plug>AM_tab|endif
-if !hasmapto('<Plug>AM_tml')	|map <unique> <Leader>tml	<Plug>AM_tml|endif
-if !hasmapto('<Plug>AM_tsp')	|map <unique> <Leader>tsp	<Plug>AM_tsp|endif
-if !hasmapto('<Plug>AM_tsq')	|map <unique> <Leader>tsq	<Plug>AM_tsq|endif
-if !hasmapto('<Plug>AM_tt')		|map <unique> <Leader>tt	<Plug>AM_tt|endif
+if !hasmapto('<Plug>AM_t|')	|map <unique> <Leader>j|	<Plug>AM_t||endif
+if !hasmapto('<Plug>AM_t#')		|map <unique> <Leader>j#	<Plug>AM_t#|endif
+if !hasmapto('<Plug>AM_t,')		|map <unique> <Leader>j,	<Plug>AM_t,|endif
+if !hasmapto('<Plug>AM_t:')		|map <unique> <Leader>j:	<Plug>AM_t:|endif
+if !hasmapto('<Plug>AM_t;')		|map <unique> <Leader>j;	<Plug>AM_t;|endif
+if !hasmapto('<Plug>AM_t<')		|map <unique> <Leader>j<	<Plug>AM_t<|endif
+if !hasmapto('<Plug>AM_t=')		|map <unique> <Leader>j=	<Plug>AM_t=|endif
+if !hasmapto('<Plug>AM_ts,')	|map <unique> <Leader>js,	<Plug>AM_ts,|endif
+if !hasmapto('<Plug>AM_ts:')	|map <unique> <Leader>js:	<Plug>AM_ts:|endif
+if !hasmapto('<Plug>AM_ts;')	|map <unique> <Leader>js;	<Plug>AM_ts;|endif
+if !hasmapto('<Plug>AM_ts<')	|map <unique> <Leader>js<	<Plug>AM_ts<|endif
+if !hasmapto('<Plug>AM_ts=')	|map <unique> <Leader>js=	<Plug>AM_ts=|endif
+if !hasmapto('<Plug>AM_w=')		|map <unique> <Leader>jw=	<Plug>AM_w=|endif
+if !hasmapto('<Plug>AM_t?')		|map <unique> <Leader>j?	<Plug>AM_t?|endif
+if !hasmapto('<Plug>AM_t~')		|map <unique> <Leader>j~	<Plug>AM_t~|endif
+if !hasmapto('<Plug>AM_t@')		|map <unique> <Leader>j@	<Plug>AM_t@|endif
+if !hasmapto('<Plug>AM_m=')		|map <unique> <Leader>jm=	<Plug>AM_m=|endif
+if !hasmapto('<Plug>AM_tab')	|map <unique> <Leader>jtab	<Plug>AM_tab|endif
+if !hasmapto('<Plug>AM_tml')	|map <unique> <Leader>jbs	<Plug>AM_tml|endif
+if !hasmapto('<Plug>AM_tsp')	|map <unique> <Leader>jsp	<Plug>AM_tsp|endif
+if !hasmapto('<Plug>AM_tsq')	|map <unique> <Leader>jsq	<Plug>AM_tsq|endif
+if !hasmapto('<Plug>AM_tt')		|map <unique> <Leader>jt	<Plug>AM_tt|endif
 
 map <silent> <script> <Plug>AM_t|		<SID>WS:AlignCtrl mIp0P0=l <Bar><CR>:'a,.Align<CR><SID>WE
 map <silent> <script> <Plug>AM_t#		<SID>WS:AlignCtrl mIp0P0=l #<CR>:'a,.Align<CR><SID>WE
@@ -199,34 +198,34 @@ if has("menu") && has("gui_running") && &go =~ 'm' && !exists("s:firstmenu")
  if g:DrChipTopLvlMenu != ""
   let s:mapleader = exists("g:mapleader")? g:mapleader : '\'
   let s:emapleader= escape(s:mapleader,'\ ')
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.<<\ and\ >><tab>'.s:emapleader.'a<	'.s:mapleader.'a<'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Assignment\ =<tab>'.s:emapleader.'t=	'.s:mapleader.'t='
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Assignment\ :=<tab>'.s:emapleader.'a=	'.s:mapleader.'a='
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Backslashes<tab>'.s:emapleader.'tml	'.s:mapleader.'tml'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Breakup\ Comma\ Declarations<tab>'.s:emapleader.'a,	'.s:mapleader.'a,'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.C\ Comment\ Box<tab>'.s:emapleader.'abox	'.s:mapleader.'abox'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Commas<tab>'.s:emapleader.'t,	'.s:mapleader.'t,'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Commas<tab>'.s:emapleader.'ts,	'.s:mapleader.'ts,'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Commas\ With\ Strings<tab>'.s:emapleader.'tsq	'.s:mapleader.'tsq'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Comments<tab>'.s:emapleader.'acom	'.s:mapleader.'acom'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Comments\ Only<tab>'.s:emapleader.'aocom	'.s:mapleader.'aocom'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Declaration\ Comments<tab>'.s:emapleader.'adcom	'.s:mapleader.'adcom'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Declarations<tab>'.s:emapleader.'adec	'.s:mapleader.'adec'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Definitions<tab>'.s:emapleader.'adef	'.s:mapleader.'adef'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Function\ Header<tab>'.s:emapleader.'afnc	'.s:mapleader.'afnc'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Html\ Tables<tab>'.s:emapleader.'Htd	'.s:mapleader.'Htd'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.(\.\.\.)?\.\.\.\ :\ \.\.\.<tab>'.s:emapleader.'a?	'.s:mapleader.'a?'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Numbers<tab>'.s:emapleader.'anum	'.s:mapleader.'anum'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Numbers\ (American-Style)<tab>'.s:emapleader.'aunum	<Leader>aunum	'.s:mapleader.'aunum	<Leader>aunum'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Numbers\ (Euro-Style)<tab>'.s:emapleader.'aenum	'.s:mapleader.'aenum'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Spaces\ (Left\ Justified)<tab>'.s:emapleader.'tsp	'.s:mapleader.'tsp'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Spaces\ (Right\ Justified)<tab>'.s:emapleader.'Tsp	'.s:mapleader.'Tsp'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Statements\ With\ Percent\ Style\ Comments<tab>'.s:emapleader.'m=	'.s:mapleader.'m='
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Symbol\ <<tab>'.s:emapleader.'t<	'.s:mapleader.'t<'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Symbol\ \|<tab>'.s:emapleader.'t\|	'.s:mapleader.'t|'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Symbol\ @<tab>'.s:emapleader.'t@	'.s:mapleader.'t@'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Symbol\ #<tab>'.s:emapleader.'t#	'.s:mapleader.'t#'
-  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Tabs<tab>'.s:emapleader.'tab	'.s:mapleader.'tab'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.<<\ and\ >><tab>'.s:emapleader.'jc<	'.s:mapleader.'jc<'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Assignment\ =<tab>'.s:emapleader.'j=	'.s:mapleader.'j='
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Assignment\ :=<tab>'.s:emapleader.'jc=	'.s:mapleader.'jc='
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Backslashes<tab>'.s:emapleader.'jbs	'.s:mapleader.'jbs'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Breakup\ Comma\ Declarations<tab>'.s:emapleader.'jc,	'.s:mapleader.'jc,'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.C\ Comment\ Box<tab>'.s:emapleader.'jcbox	'.s:mapleader.'jcbox'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Commas<tab>'.s:emapleader.'j,	'.s:mapleader.'j,'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Commas<tab>'.s:emapleader.'js,	'.s:mapleader.'js,'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Commas\ With\ Strings<tab>'.s:emapleader.'jsq	'.s:mapleader.'jsq'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Comments<tab>'.s:emapleader.'jccom	'.s:mapleader.'jccom'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Comments\ Only<tab>'.s:emapleader.'jcocom	'.s:mapleader.'jcocom'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Declaration\ Comments<tab>'.s:emapleader.'jcdcom	'.s:mapleader.'jcdcom'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Declarations<tab>'.s:emapleader.'jcdec	'.s:mapleader.'jcdec'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Definitions<tab>'.s:emapleader.'jcdef	'.s:mapleader.'jcdef'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Function\ Header<tab>'.s:emapleader.'jcfnc	'.s:mapleader.'jcfnc'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Html\ Tables<tab>'.s:emapleader.'jhtd	'.s:mapleader.'jhtd'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.(\.\.\.)?\.\.\.\ :\ \.\.\.<tab>'.s:emapleader.'jc?	'.s:mapleader.'jc?'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Numbers<tab>'.s:emapleader.'jcnum	'.s:mapleader.'jcnum'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Numbers\ (American-Style)<tab>'.s:emapleader.'jcunum	<Leader>jcunum	'.s:mapleader.'jcunum	<Leader>jcunum'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Numbers\ (Euro-Style)<tab>'.s:emapleader.'jcenum	'.s:mapleader.'jcenum'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Spaces\ (Left\ Justified)<tab>'.s:emapleader.'jsp	'.s:mapleader.'jsp'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Spaces\ (Right\ Justified)<tab>'.s:emapleader.'Jsp	'.s:mapleader.'Jsp'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Statements\ With\ Percent\ Style\ Comments<tab>'.s:emapleader.'jm=	'.s:mapleader.'jm='
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Symbol\ <<tab>'.s:emapleader.'j<	'.s:mapleader.'j<'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Symbol\ \|<tab>'.s:emapleader.'j\|	'.s:mapleader.'j|'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Symbol\ @<tab>'.s:emapleader.'j@	'.s:mapleader.'j@'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Symbol\ #<tab>'.s:emapleader.'j#	'.s:mapleader.'j#'
+  exe 'menu '.g:DrChipTopLvlMenu.'AlignMaps.Tabs<tab>'.s:emapleader.'jtab	'.s:mapleader.'jtab'
   unlet s:mapleader
   unlet s:emapleader
  endif
